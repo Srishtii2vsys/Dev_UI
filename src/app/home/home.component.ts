@@ -14,13 +14,13 @@ import { ReimbursementComponent } from '../reimbursement/reimbursement.component
 })
 export class HomeComponent {
   menuItems = [
-    { name: 'Dashboard', icon: '../assets/svgs/dashboard.svg', activeIcon: '../assets/svgs/dashboard-active.svg' },
-    { name: 'Users', icon: '../assets/svgs/users.png', activeIcon: '../assets/svgs/users-active.svg' },
-    { name: 'Reimbursement', icon: '../assets/svgs/reimbursement.svg', activeIcon: '../assets/svgs/reimbursement-active.svg' },
-    { name: 'Advances', icon: '../assets/svgs/advances.svg', activeIcon: '../assets/svgs/advances-active.svg' },
-    { name: 'Reports', icon: '../assets/svgs/reports.svg', activeIcon: '../assets/svgs/reports-active.svg' },
-    { name: 'Analytics', icon: '../assets/svgs/analytics.svg', activeIcon: '../assets/svgs/analytics-active.svg' },
-    { name: 'Settings', icon: '../assets/svgs/settings.svg', activeIcon: '../assets/svgs/settings-active.svg' }
+    { name: 'Dashboard', icon: 'svgs/dashboard.svg', activeIcon: 'svgs/dashboard-active.svg' },
+    { name: 'Users', icon: 'svgs/users.svg', activeIcon: 'svgs/users-active.svg' },
+    { name: 'Reimbursement', icon: 'svgs/reimbursement.svg', activeIcon: 'svgs/reimbursement-active.svg' },
+    { name: 'Advances', icon: 'svgs/advances.svg', activeIcon: 'svgs/advances-active.svg' },
+    { name: 'Reports', icon: 'svgs/reports.svg', activeIcon: 'svgs/reports-active.svg' },
+    { name: 'Analytics', icon: 'svgs/analytics.svg', activeIcon: 'svgs/analytics-active.svg' },
+    { name: 'Settings', icon: 'svgs/settings.svg', activeIcon: 'svgs/settings-active.svg' }
   ];
   activePage : string = "Dashboard";
 

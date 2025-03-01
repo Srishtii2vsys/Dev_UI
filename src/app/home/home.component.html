@@ -7,8 +7,8 @@
     </app-left-panel>
     <div class="main-content">
         <app-header class="header-div"></app-header>
-    
-        <app-dashboard 
+        <div class = "content-div">
+            <app-dashboard 
             *ngIf="activePage === 'Dashboard'" 
             class="content-div">
         </app-dashboard>
@@ -17,6 +17,8 @@
             *ngIf="activePage === 'Reimbursement'" 
             class="content-div"> 
         </app-reimbursement>
+        </div>
+        
     </div>
     
     

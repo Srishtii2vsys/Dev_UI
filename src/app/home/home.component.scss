@@ -1,12 +1,12 @@
 .main {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 5%;
-  
-    .left-panel {
-      width: 250px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+
+  .left-panel {
+    
     height: 100vh;
     background-color: #1e2227;
     display: flex;
@@ -14,23 +14,44 @@
     justify-content: space-between;
     padding: 15px;
     color: #fff;
-    position: fixed; /* Make the sidebar fixed */
+    position: fixed;
     left: 0;
     top: 0;
-    z-index: 100; /* Ensure sidebar stays above other content */
-    overflow-y: auto; /* Allow scrolling within sidebar if it's taller than viewport */
-    }
-
-    .main-content{
-      margin-left: 250px; /* Same as sidebar width */
-      min-height: 100vh;
-      padding: 15px;
-        .content-div {
-          overflow: auto;
-        }
-        
-    }
-
-    
+    z-index: 100;
+    overflow-y: auto;
   }
-  
+
+  .main-content {
+    margin-left: 250px;
+    min-height: 100vh;
+    position: relative;
+    /* Create positioning context for header */
+
+    /* Fixed header */
+    .header-div {
+      position: fixed;
+      top: 0;
+      left: 250px;
+      /* Same as sidebar width */
+      right: 0;
+      background-color: #fff;
+      /* Or whatever color you want */
+      z-index: 99;
+      /* Add height based on your header's actual height */
+      height: 60px;
+      /* Adjust this value to match your header height */
+      /* Optional shadow for visual separation */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Content area with padding to account for fixed header */
+    .content-div {
+      width: 100%;
+      padding-top: 70px;
+      /* Slightly more than header height */
+
+    }
+  }
+
+
+}

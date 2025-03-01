@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CardComponent } from "../common-components/card/card.component";
 import { InfoCardComponent } from "../common-components/info-card/info-card.component";
 import { SummaryCardComponent } from '../common-components/summary-card/summary-card.component';
+import { MetricCardComponent } from '../common-components/metric-card/metric-card.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CardComponent, SummaryCardComponent, InfoCardComponent],
+  imports: [MetricCardComponent, SummaryCardComponent, InfoCardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -13,12 +13,12 @@ export class DashboardComponent {
   
   contactItems= [
     {
-      icon: '',
+      icon: 'svgs/email.svg',
       title: 'Email',
       content: 'help@domain.in'
     },
     {
-      icon: '',
+      icon: 'svgs/call.svg',
       title: 'Call',
       content: '+91 9999-555-777'
     }
@@ -26,17 +26,17 @@ export class DashboardComponent {
 
   resourceItems = [
     {
-      icon: '',
+      icon: 'svgs/help.svg',
       content: 'Help Documentation',
       link: '/help'
     },
     {
-      icon: '',
+      icon: 'svgs/faq.svg',
       content: 'FAQ',
       link: '/faq'
     },
     {
-      icon: '',
+      icon: 'svgs/guide.svg',
       content: 'Essential Business Guides',
       link: '/guides'
     }

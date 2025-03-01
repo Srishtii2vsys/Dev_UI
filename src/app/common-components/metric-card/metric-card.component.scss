@@ -1,0 +1,72 @@
+.metric-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-width: 220px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #464646;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .action-link {
+    color: #1ac6b8;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .action-link:hover {
+    text-decoration: underline;
+  }
+  
+  .trend {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 4px;
+  }
+  
+  .trend.up {
+    color: #38a169;
+  }
+  
+  .trend.down {
+    color: #e53e3e;
+  }
+  
+  .trend-period {
+    color: #666;
+  }
