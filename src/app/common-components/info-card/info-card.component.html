@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="heading">
+      {{heading}}
+    </div>
+    <div class="content-section">
+      <div class="info-item" *ngFor="let item of items">
+        <div class="icon" [innerHTML]="item.icon"></div>
+        <div class="item-content">
+          <div class="item-title" *ngIf="item.title">{{item.title}}</div>
+          <div class="item-text" [class.clickable]="item.link" (click)="onItemClick(item)">
+            {{item.content}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

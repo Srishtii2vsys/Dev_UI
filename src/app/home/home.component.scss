@@ -1,0 +1,36 @@
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+  
+    .left-panel {
+      width: 250px;
+    height: 100vh;
+    background-color: #1e2227;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    color: #fff;
+    position: fixed; /* Make the sidebar fixed */
+    left: 0;
+    top: 0;
+    z-index: 100; /* Ensure sidebar stays above other content */
+    overflow-y: auto; /* Allow scrolling within sidebar if it's taller than viewport */
+    }
+
+    .main-content{
+      margin-left: 250px; /* Same as sidebar width */
+      min-height: 100vh;
+      padding: 15px;
+        .content-div {
+          overflow: auto;
+        }
+        
+    }
+
+    
+  }
+  

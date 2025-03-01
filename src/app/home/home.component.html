@@ -1,0 +1,23 @@
+<div class = "main">
+    <app-left-panel 
+    class = "left-panel"
+    [(activeItem)]="activePage"
+    [menuItems]="menuItems"
+    >
+    </app-left-panel>
+    <div class="main-content">
+        <app-header class="header-div"></app-header>
+    
+        <app-dashboard 
+            *ngIf="activePage === 'Dashboard'" 
+            class="content-div">
+        </app-dashboard>
+    
+        <app-reimbursement 
+            *ngIf="activePage === 'Reimbursement'" 
+            class="content-div"> 
+        </app-reimbursement>
+    </div>
+    
+    
+</div>

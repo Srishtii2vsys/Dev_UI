@@ -1,0 +1,110 @@
+// .main{
+//     background-color: #1B1D21;
+//     height: 100%;
+//     width: 100%;
+//     color: #EEF2FFCC;
+//     display: flex;
+//     flex-direction:  column;
+
+//     .logo-section {
+//         height: 10%;
+//     }
+//     .menu-section{
+//         height: 85%;
+//     }
+//     .bottom-section{
+//         align-items: center;
+//         height: 5%
+//     }
+// }
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #1e2227;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    color: #fff;
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      img {
+        width: 120px;
+      }
+  
+      .admin-btn {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    
+      li {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 12px;
+          transition: transform 0.3s ease;
+        }
+    
+        span {
+          color: #bbb;
+          transition: color 0.3s ease;
+        }
+    
+        &:hover,
+        &.active {
+          background-color: #1ac6b8;
+    
+          span {
+            color: #000;
+          }
+    
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+    
+  
+    .theme-switch {
+      display: flex;
+      justify-content: space-around;
+  
+      .theme-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        transition: 0.3s ease;
+  
+        &.active {
+          background-color: #1ac6b8;
+          border-radius: 8px;
+          color: black;
+        }
+      }
+    }
+  }
+  

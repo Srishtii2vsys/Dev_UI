@@ -1,0 +1,49 @@
+<!-- <div class = "main">
+    <div class = "logo-section">
+
+    </div> 
+    <div class = "menu-section"> 
+        <ul>
+            <li >Dashboard</li>
+            <li >Users</li>
+            <li >Reimbursement</li>
+            <li >Advances</li>
+            <li >Reports</li>
+            <li >Analytics</li>
+            <li >Settings</li>
+
+        </ul>
+    </div>
+    <div class = "bottom-section">
+        <span> Light</span>
+        <span> Dark </span>
+    </div>
+</div> -->
+
+<div class="sidebar">
+  <div class="logo">
+    <img src="assets/logo.png" alt="Company Logo"  />
+    <button class="admin-btn">ADMIN</button>
+  </div>
+
+  <ul class="menu">
+    <li 
+      *ngFor="let item of menuItems" 
+      (click)="setActive(item.name)"
+      [class.active]="activeItem === item.name"
+    >
+      <img 
+        [src]="activeItem === item.name ? item.activeIcon : item.icon" 
+        [alt]="item.name"
+      />
+      <span>{{ item.name }}</span>
+    </li>
+  </ul>
+
+  <div class="theme-switch">
+    <button class="theme-btn active"> Light</button>
+    <button class="theme-btn"> Dark</button>
+  </div>
+</div>
+
+  

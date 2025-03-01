@@ -1,0 +1,41 @@
+.main {
+    border : 1px solid #E3EAF4;
+    border-radius: 4%;
+    height : 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    left : 10%;
+
+    .title {
+        .heading{
+            font-family: Outfit;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22.68px;
+            letter-spacing: 0%;
+        }
+        
+
+    }
+    .value-div {
+        font-family: Outfit;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40.32px;
+        letter-spacing: 0%;
+        color : #1B1D21;
+
+    }
+
+    .bottom-section{
+        border-top : 1px solid #E3EAF4;
+        font-family: Outfit;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17.64px;
+        letter-spacing: 0%;
+
+    }
+}

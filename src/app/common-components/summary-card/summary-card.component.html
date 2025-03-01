@@ -1,0 +1,53 @@
+<!-- summary-card.component.html -->
+<div class="card-container">
+    <div class="card-header">
+      <h2 class="card-title">{{ title }}</h2>
+      <div class="period-selector">
+        {{ period }} <span class="arrow-down">▼</span>
+      </div>
+    </div>
+    <div class="column-headers" *ngIf="showColumnHeaders && type === 'violators'">
+        <div class="username-header">{{ usernameLabel }}</div>
+        <div class="amount-header">{{ amountLabel }}</div>
+      </div>
+  
+    <div class="card-content" [ngClass]="{'summary-type': type === 'summary', 'violators-type': type === 'violators'}">
+      <!-- For violators list -->
+      <ng-container *ngIf="type === 'violators'">
+        <div class="list-item" *ngFor="let item of listItems">
+          <div class="avatar-info">
+            <div class="avatar" *ngIf="item.avatar">
+              <img [src]="item.avatar" [alt]="item.name">
+            </div>
+            <div class="person-info">
+              <div class="name">{{ item.name }}</div>
+              <div class="title">{{ item.title }}</div>
+            </div>
+          </div>
+          <div class="amount-info">
+            <div class="amount">₹ {{ item.amount | number }}</div>
+            <div class="subtitle" *ngIf="item.subtitle">({{ item.subtitle }})</div>
+          </div>
+        </div>
+        <div class="view-all" *ngIf="showViewAll">
+          <a [routerLink]="viewAllLink">View All</a>
+        </div>
+      </ng-container>
+  
+      <!-- For summary items -->
+      <ng-container *ngIf="type === 'summary'">
+        <div class="summary-item" *ngFor="let item of listItems">
+          <div class="summary-icon" [ngClass]="'icon-' + item.id">
+            <span class="icon"></span>
+          </div>
+          <div class="summary-info">
+            <div class="summary-title">{{ item.name }}</div>
+            <div class="summary-amount">₹ {{ item.amount | number }}</div>
+          </div>
+        </div>
+        <div class="view-analytics" *ngIf="showViewAnalytics">
+          <a [routerLink]="viewAnalyticsLink">View Analytics</a>
+        </div>
+      </ng-container>
+    </div>
+  </div>

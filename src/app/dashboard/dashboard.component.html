@@ -1,0 +1,49 @@
+<div class="main">
+    <span class="heading"> Dashboard </span>
+    <div class="content-section">
+        <div class="cards-section">
+            <app-card class="card-div" [heading]="'Pending reimbursement'" [value]="75"
+                [buttonHeading]="'View all request'" [changePercentage]="35">
+            </app-card>
+            <app-card class="card-div" [heading]="'Approved reimbursement'" [value]="478"
+                [buttonHeading]="'Track all reimbursement'" [changePercentage]="15">
+            </app-card>
+            <app-card class="card-div" [heading]="'Advances request'" [value]="62" [buttonHeading]="'View all request'"
+                [changePercentage]="9">
+            </app-card>
+        </div>
+        <div class="timeline-cards">
+            <!-- Top Violators Card -->
+            <app-summary-card title="Top violators" [listItems]="violatorsData" type="violators" period="This Year"
+                [showViewAll]="true" viewAllLink="/all-violators">
+            </app-summary-card>
+
+            <!-- Overall Summary Card -->
+            <app-summary-card title="Overall summary" [listItems]="summaryData" type="summary" period="This Year"
+                [showViewAnalytics]="true" viewAnalyticsLink="/analytics">
+            </app-summary-card>
+        </div>
+
+        <app-summary-card
+        title="Top spending users"
+        [listItems]="spendingUsersData"
+        type="violators" 
+        period="This Month"
+        [showViewAll]="false">
+      </app-summary-card>
+    </div>
+
+
+    <div class="right-div">
+
+    </div>
+
+<div class="bottom-section">
+    <app-info-card [heading]="'Contact us'" [items]="contactItems">
+    </app-info-card>
+    <app-info-card [heading]="'Resources'" [items]="resourceItems">
+    </app-info-card>
+</div>
+
+
+</div>
