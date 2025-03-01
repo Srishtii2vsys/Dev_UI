@@ -10,7 +10,7 @@ export class Reimbursement {
     lastUpdate : string = "";    
     category?  : Enum_Category; 
     department? : Enum_Department;   
-    status? : Enum_Status;
+    status : Enum_Status = Enum_Status.Screening;
     reimbursementAmount : number = 0;
     personId : string = "";
 
