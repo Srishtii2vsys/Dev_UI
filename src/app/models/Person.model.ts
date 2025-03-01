@@ -1,8 +1,8 @@
-import { category_enum } from "../enums/Enum_Category";
 
 export class Person {
+    id : string = "" ;
     name: string = "";
     profession: string = "";
-    expense : number  = 0; 
+    amount : number  = 0; 
     noOfExpenses : number = 0;    
 } 

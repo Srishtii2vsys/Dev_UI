@@ -2,6 +2,6 @@ export enum Enum_Status{
     Screening = "Screening",
     Rejected = "Rejected",
     Approved = "Approved",
-    Archieved = "Archieved",
+    Archived = "Archived",
     Paid = "Paid",
 }

@@ -1,9 +1,15 @@
 export enum Enum_Category {
     Games = "Games",
+    Electricity = "Electricity",
+    Retail = "Retail",
+    Travel = "Travel",
+    CurrentEvents = "Current Events",
+    CarRent = "Car Rent",
     Hotel = "Hotel",
     Entertainment = "Entertainment",
     Food = "Food",
+    Fitness = "Fitness",
     Sports = "Sports",
-       
-      
+    WordPress = "Word Press",
+    Trip = "Trip",
 }

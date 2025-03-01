@@ -1,12 +1,12 @@
 export enum Enum_Department{
-    Admininstration = "Administration",
+    Administration = "Administration",
     Product = "Product",
     Management = "Management",
     Marketing = "Marketing",
     Sales = "Sales",
     Finances = "Finances",
-    Customer_Success = "Customer_Success",
+    CustomerSuccess = "Customer Success",
     Support = "Support",
-    Human_Resources  = "Human_Resources",
+    HumanResources  = "Human Resources",
     Engineering = "Engineering"
 } 
