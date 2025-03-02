@@ -8,8 +8,11 @@
     <div class="search-bar">
       <span>Search Date</span>
       <div class="date-picker-container">
-        <input type="date" id="date-picker" name="date-picker">
-        <img src="svgs/calendar.svg" alt="Calendar" class="calendar-icon">
+        <input type="date" id="date-picker" name="date-picker" [(ngModel)]="searchDate">
+        <!-- <img src="svgs/calendar.svg" alt="Calendar" class="calendar-icon"> -->
+        <button class="clear-button" *ngIf="searchDate" (click)="clearDateFilter()">
+          <img src="svgs/close-circle.svg" alt="Clear">
+        </button>
       </div>
     </div>
   </div>
@@ -70,6 +73,11 @@
       </tr>
     </tbody>
   </table>
+  
+  <div *ngIf="reimbursementData.length === 0" class="no-results">
+    <p>No reimbursements found for the selected date.</p>
+    <button (click)="clearDateFilter()">Clear Filter</button>
+  </div>
        
   <div class="pagination">
     <button class="pagination-button previous">

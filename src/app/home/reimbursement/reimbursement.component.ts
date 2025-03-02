@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { reimbursementData } from '../../static-data/reimbursement-data';
 import { Reimbursement } from '../../models/Reimbursement.model';
 import { personsData } from '../../static-data/person-details';
@@ -7,22 +8,25 @@ import { ContextMenuComponent, MenuItem } from "../../common-components/context-
 
 @Component({
   selector: 'app-reimbursement',
-  imports: [CommonModule, ContextMenuComponent],
+  imports: [CommonModule, FormsModule, ContextMenuComponent],
   templateUrl: './reimbursement.component.html',
   styleUrl: './reimbursement.component.scss'
 })
 export class ReimbursementComponent {
-  reimbursementData = reimbursementData;
+  allReimbursementData = reimbursementData;
+  reimbursementData = [...reimbursementData];
+  searchDate: string = '';
 
   displayedColumns: string[] = ['title', 'date', 'category', 'username', 'department', 'lastUpdate', 'status', 'amount', 'actions'];
-  moreMenuItems :  MenuItem[] = [
+  moreMenuItems: MenuItem[] = [
     { id: 'edit', label: 'Edit', icon: 'edit' },
     { id: 'reimburse', label: 'Reimburse', icon: 'reimbursement' },
     { id: 'archive', label: 'Archieve', icon: 'archive-add' },
     { id: 'export', label: 'Export', icon: 'export' },
-
   ];
-   @ViewChild('contextMenu') contextMenu!: ContextMenuComponent;
+  
+  @ViewChild('contextMenu') contextMenu!: ContextMenuComponent;
+  
   statusColors: { [key: string]: string } = {
     'Screening': '#FFF8E1', // Light yellow
     'Approved': '#E8F5E9', // Light green
@@ -42,8 +46,77 @@ export class ReimbursementComponent {
   constructor() { }
 
   ngOnInit(): void {
-    // You can perform any initialization here
+    // Initialize the component
+    this.setupDatePicker();
   }
+
+  setupDatePicker(): void {
+    const datePicker = document.getElementById('date-picker') as HTMLInputElement;
+    if (datePicker) {
+      datePicker.addEventListener('change', (event) => {
+        const selectedDate = (event.target as HTMLInputElement).value;
+        this.searchByDate(selectedDate);
+      });
+    }
+  }
+
+  /**
+   * Converts a date string from 'DD/MM/YYYY' format to a Date object
+   */
+  parseDateString(dateString: string): Date | null {
+    if (!dateString) return null;
+    
+    // Check if the date is in DD/MM/YYYY format
+    const parts = dateString.split('/');
+    if (parts.length !== 3) return null;
+    
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Month is 0-indexed in JavaScript Date
+    const year = parseInt(parts[2], 10);
+    
+    return new Date(year, month, day);
+  }
+
+  /**
+   * Formats a Date object to 'DD/MM/YYYY' string
+   */
+  formatDateToString(date: Date): string {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
+    const year = date.getFullYear();
+    
+    return `${day}/${month}/${year}`;
+  }
+
+  searchByDate(date: string): void {
+    this.searchDate = date;
+    
+    if (!date) {
+      // If no date is selected, show all data
+      this.reimbursementData = [...this.allReimbursementData];
+      return;
+    }
+
+    // Convert the HTML date picker value (YYYY-MM-DD) to DD/MM/YYYY for comparison
+    const searchDateObj = new Date(date);
+    const formattedSearchDate = this.formatDateToString(searchDateObj);
+    
+    // Filter the data where the date matches the selected date
+    this.reimbursementData = this.allReimbursementData.filter(item => {
+      return item.date === formattedSearchDate;
+    });
+  }
+
+  // Add a method to clear the date filter
+  clearDateFilter(): void {
+    const datePicker = document.getElementById('date-picker') as HTMLInputElement;
+    if (datePicker) {
+      datePicker.value = '';
+    }
+    this.searchDate = '';
+    this.reimbursementData = [...this.allReimbursementData];
+  }
+
   getPersonName(personId: string): string {
     const person = personsData.find(p => p.id === personId);
     return person ? person.name : personId;
@@ -62,7 +135,6 @@ export class ReimbursementComponent {
     return name.charAt(0).toUpperCase();
   }
 
-
   getStatusStyle(status: string): any {
     return {
       'background-color': this.statusColors[status] || '#F5F5F5',
@@ -79,6 +151,7 @@ export class ReimbursementComponent {
   getFormattedAmount(amount: number): string {
     return '₹ ' + amount.toLocaleString('en-IN');
   }
+  
   onApprove(reimbursement: Reimbursement): void {
     // Implement approval logic
     console.log('Approved:', reimbursement);
@@ -90,8 +163,9 @@ export class ReimbursementComponent {
   }
 
   handleMenuItemClick(item: MenuItem): void {
-      console.log('Menu item clicked:', item);
+    console.log('Menu item clicked:', item);
   }
+  
   toggleMenu(event: Event): void {
     event.stopPropagation();
     this.contextMenu.toggle(event);
