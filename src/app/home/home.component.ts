@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LeftPanelComponent } from '../left-panel/left-panel.component';
-import { HeaderComponent } from '../header/header.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { ReimbursementComponent } from '../reimbursement/reimbursement.component';
+import { LeftPanelComponent } from './left-panel/left-panel.component';
+import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReimbursementComponent } from './reimbursement/reimbursement.component';
 
 
 @Component({

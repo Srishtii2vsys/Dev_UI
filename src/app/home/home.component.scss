@@ -40,11 +40,20 @@
       /* Optional shadow for visual separation */
       border-bottom: 1px solid #E3EAF4;
     }
-
+    
     /* Content area with padding to account for fixed header */
     .content-div {
       width: 100%;
       padding-top: 70px;
+      
+      .heading {
+        font-family: Outfit;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        color: #1B1D21;
+        padding: 16px;
+      }
     }
   }
 
