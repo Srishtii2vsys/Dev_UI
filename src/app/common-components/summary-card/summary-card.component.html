@@ -16,8 +16,8 @@
       <ng-container *ngIf="type === 'violators'">
         <div class="list-item" *ngFor="let item of listItems">
           <div class="avatar-info">
-            <div class="avatar" *ngIf="item.avatar">
-              <img [src]="item.avatar" [alt]="item.name">
+            <div class="avatar" *ngIf="item.icon">
+              <img [src]="item.icon" [alt]="item.name">
             </div>
             <div class="person-info">
               <div class="name">{{ item.name }}</div>
@@ -37,8 +37,8 @@
       <!-- For summary items -->
       <ng-container *ngIf="type === 'summary'">
         <div class="summary-item" *ngFor="let item of listItems">
-          <div class="summary-icon" [ngClass]="'icon-' + item.id">
-            <span class="icon"></span>
+          <div class="summary-icon" >
+            <img class ="icon" [src]="item.icon" [alt]="item.name">
           </div>
           <div class="summary-info">
             <div class="summary-title">{{ item.name }}</div>

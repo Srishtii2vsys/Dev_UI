@@ -7,7 +7,7 @@ interface ListItem {
   title?: string;
   amount: number;
   subtitle?: string;
-  avatar?: string;
+  icon?: string;
 }
 
 @Component({

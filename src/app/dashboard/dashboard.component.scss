@@ -1,40 +1,114 @@
-.main{
+.main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap : 8%;
-  
+    gap: 24px;
+    
+    
     .heading {
-        font-family: Outfit;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 40.32px;
-        letter-spacing: 0%;
+      font-family: Outfit, sans-serif;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      color: #1B1D21;
+      margin-bottom: 16px;
+      padding: 16px;
     }
-
+  
     .content-section {
-        height: 100%;
-        display : flex;
-        flex-direction: column; 
-        gap: 5%;
-
-        .cards-section{
-          
-            width: 100%;
-            display: flex;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 16px;
+      @media (min-width: 992px) {
+        flex-direction: row;
+        gap: 24px;
+      }
+  
+      .left-div {
+        width: 100%;
+        
+        @media (min-width: 992px) {
+          width: 70%;
+        }
+  
+        .metrics-row {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-bottom: 24px;
+  
+          @media (min-width: 768px) {
             flex-direction: row;
-            gap : 5%;
-    
-            .card-div {
-                height: 100%;
-                width: 30%;
+            flex-wrap: wrap;
+          }
+  
+          app-metric-card {
+            width: 100%;
+            
+            @media (min-width: 768px) {
+              width: calc(33.33% - 11px);
             }
+          }
         }
-        .timeline-cards{
-            height: 100%;
+  
+        .summary-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+  
+          @media (min-width: 768px) {
+            flex-direction: row;
+            gap: 24px;
+          }
+  
+          .summary-card {
+            width: 100%;
+            margin-bottom: 24px;
+            
+  
+            @media (min-width: 768px) {
+              width: calc(50% - 12px);
+              margin-bottom: 0;
+            }
+          }
         }
+      }
+  
+      .right-div {
+        width: 100%;
+        
+        @media (min-width: 992px) {
+          width: 30%;
+        }
+        
+        .summary-card {
+          background-color: mix(#EEF2FF, transparent, 20%);
+          width: 100%;
+        }
+      }
     }
-    
-    
-
-}
+  
+    .bottom-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+   
+        background-color: #EEF3F7;
+        padding: 20px;
+  
+      @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 24px;
+      }
+  
+      app-info-card {
+        width: 100%;
+        
+        @media (min-width: 768px) {
+          width: 50%;
+        }
+      }
+    }
+  }

@@ -1,24 +1,18 @@
 <div class="metric-card">
     <div class="card-header">
-      <span class="title">{{ title }}</span>
-      <div class="icon" [ngStyle]="{'background-color': getIconBgColor()}">
-        <img src= "iconName">
-        <!-- <app-svg-icon 
-          [name]="iconName" 
-          [color]="iconColor" 
-          [width]="20" 
-          [height]="20">
-        </app-svg-icon> -->
+      <span class="title">{{ listItems.title }}</span>
+      <div class="icon">
+        <img [src]= "'svgs/' + listItems.icon + '.svg'">
       </div>
     </div>
     
-    <div class="card-value">{{ value }}</div>
-    
+    <div class="card-value">{{ listItems.value }}</div>
+    <span class="action-link">{{ listItems.actionText }}</span>
     <div class="card-footer">
-      <span class="action-link">{{ actionText }}</span>
-      <div class="trend" [ngClass]="trendDirection === 'up' ? 'up' : 'down'">
-        <span class="trend-value">{{ trendValue }}%</span>
-        <span class="trend-arrow">{{ trendDirection === 'up' ? '↑' : '↓' }}</span>
+      <div class="trend" [ngClass]="listItems.trendDirection === 'up' ? 'up' : 'down'">
+        <span class="trend-value">{{listItems.trendValue }}%</span>
+        <img [src] = "'svgs/' + listItems.trendDirection + '.svg'">
+        <!-- <span class="trend-arrow">{{ listItems.trendDirection === 'up' ? '↑' : '↓' }}</span> -->
         <span class="trend-period">in last 30 days</span>
       </div>
     </div>

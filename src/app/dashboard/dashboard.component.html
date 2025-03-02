@@ -1,72 +1,42 @@
 <div class="main">
-    <span class="heading"> Dashboard </span>
-    <div class="content-section">
-        <div class="metrics-row">
-            <app-metric-card
-              title="Pending reimbursement"
-              iconName="pending"
-              iconBgColor="#FEF0C7"
-              iconColor="#D46B08"
-              [value]="75"
-              actionText="View All Request"
-              [trendValue]="55"
-              trendDirection="up">
-            </app-metric-card>
-            
-            <app-metric-card
-              title="Approved reimbursement"
-              iconName="approved"
-              iconBgColor="#ECFDF3"
-              iconColor="#12B76A"
-              [value]="478"
-              actionText="Track All Reimbursement"
-              [trendValue]="10"
-              trendDirection="up">
-            </app-metric-card>
-            
-            <app-metric-card
-              title="Advances request"
-              iconName="advances"
-              iconBgColor="#FEF3F2"
-              iconColor="#F04438"
-              [value]="62"
-              actionText="View All Request"
-              [trendValue]="5"
-              trendDirection="down">
-            </app-metric-card>
-          </div>
-       
-            <!-- Top Violators Card -->
-            <app-summary-card title="Top violators" [listItems]="violatorsData" type="violators" period="This Year"
-                [showViewAll]="true" viewAllLink="/all-violators">
-            </app-summary-card>
+  <span class="heading"> Dashboard </span>
+  <div class="content-section">
+    <div class="left-div">
+      <div class="metrics-row">
+        <app-metric-card [listItems]="metricCardlistItems[0]">
+        </app-metric-card>
+        <app-metric-card [listItems]="metricCardlistItems[1]">
+        </app-metric-card>
+        <app-metric-card [listItems]="metricCardlistItems[2]">
+        </app-metric-card>
+      </div>
+      <div class="summary-cards">
+        <!-- Top Violators Card -->
+        <app-summary-card class ="summary-card"  title="Top violators" [listItems]="violatorsData" type="violators" period="This Year"
+          [showViewAll]="true" viewAllLink="/all-violators">
+        </app-summary-card>
 
-            <!-- Overall Summary Card -->
-            <app-summary-card title="Overall summary" [listItems]="summaryData" type="summary" period="This Year"
-                [showViewAnalytics]="true" viewAnalyticsLink="/analytics">
-            </app-summary-card>
-        
+        <!-- Overall Summary Card -->
+        <app-summary-card class ="summary-card"  title="Overall summary" [listItems]="summaryData" type="summary" period="This Year"
+          [showViewAnalytics]="true" viewAnalyticsLink="/analytics">
+        </app-summary-card>
 
-        <app-summary-card
-        title="Top spending users"
-        [listItems]="topSpendingUsersData"
-        type="violators" 
-        period="This Month"
-        [showViewAll]="false">
-      </app-summary-card>
+      </div>
     </div>
-
 
     <div class="right-div">
-
+      <app-summary-card class ="summary-card" title="Top spending users" [listItems]="topSpendingUsersData" type="violators"
+        period="This Month" [showViewAll]="false">
+      </app-summary-card>
     </div>
+  </div>
 
-<div class="bottom-section">
+  <div class="bottom-section">
     <app-info-card [heading]="'Contact us'" [items]="contactItems">
     </app-info-card>
     <app-info-card [heading]="'Resources'" [items]="resourceItems">
     </app-info-card>
-</div>
+  </div>
 
 
 </div>
