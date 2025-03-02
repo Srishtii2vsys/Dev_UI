@@ -25,10 +25,10 @@
           [class.unread]="!item.isRead"
           (click)="markAsRead(item)">
 
-            <img class="notification-icon"  [src]="'users/' + item.type + '.svg'" >
+            <img class="notification-icon"  [src]="'svgs/' + item.type + '.svg'" >
           <div class="notification-content">
             <div class="notification-message" [innerHTML]="item.message"></div>
-            <div class="notification-date">{{ formatDate(item.date) }}</div>
+            <div class="notification-date">{{ item.date }}</div>
           </div>
         </div>
       </ng-container>

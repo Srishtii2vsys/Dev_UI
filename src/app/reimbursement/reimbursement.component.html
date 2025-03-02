@@ -29,7 +29,7 @@
         <tr *ngFor="let item of reimbursementData">
           <td>{{ item.title }}</td>
           <td>{{ item.date }}</td>
-          <td>{{ item.category }}</td>
+          <td class="category-cell">{{ item.category }}</td>
           <td class="user-cell">
             <img [src]="'users/' + item.personId + '.jpg'" [alt]="getPersonInitials(item.personId)">
             <span>{{ getPersonName(item.personId) }}</span>
@@ -43,15 +43,20 @@
           </td>
           <td>{{ getFormattedAmount(item.reimbursementAmount) }}</td>
           <td class="actions-cell">
-            <button *ngIf="item.status === 'Screening'" class="action-button approve" (click)="onApprove(item)">
-              <i class="fas fa-check"></i>
+             <button *ngIf="item.status === 'Screening'" class="action-button" (click)="onApprove(item)">
+              <img src="svgs/tick-circle.svg">
             </button>
-            <button *ngIf="item.status === 'Screening'" class="action-button reject" (click)="onReject(item)">
-              <i class="fas fa-times"></i>
+            <button *ngIf="item.status === 'Screening'" class="action-button" (click)="onReject(item)">
+              <img src="svgs/close-circle.svg">
             </button>
-            <button class="action-button more" (click)="onMoreOptions(item)">
-              <i class="fas fa-ellipsis-h"></i>
-            </button>
+            <button class="action-button more" (click)="toggleMenu($event)">
+              <img src="svgs/more.svg">
+              <app-context-menu
+              #contextMenu
+              [menuItems]="moreMenuItems"
+              (itemClicked)="handleMenuItemClick($event)">
+            </app-context-menu>
+            </button> 
           </td>
         </tr>
       </tbody>
@@ -59,10 +64,11 @@
     
     <div class="pagination">
       <button class="pagination-button previous">
-        <i class="fas fa-chevron-left"></i>
+        <img src="svgs/arrow-left.svg">
+      
       </button>
       <button class="pagination-button next">
-        <i class="fas fa-chevron-right"></i>
+        <img src="svgs/arrow-right.svg">
       </button>
     </div>
   </div>

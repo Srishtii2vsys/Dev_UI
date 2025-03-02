@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { reimbursementData } from '../static-data/reimbursement-data';
 import { Reimbursement } from '../models/Reimbursement.model';
 import { personsData } from '../static-data/person-details';
+import { ContextMenuComponent, MenuItem } from "../common-components/context-menu/context-menu.component";
 
 @Component({
   selector: 'app-reimbursement',
-  imports: [CommonModule],
+  imports: [CommonModule, ContextMenuComponent],
   templateUrl: './reimbursement.component.html',
   styleUrl: './reimbursement.component.scss'
 })
@@ -14,7 +15,14 @@ export class ReimbursementComponent {
   reimbursementData = reimbursementData;
 
   displayedColumns: string[] = ['title', 'date', 'category', 'username', 'department', 'lastUpdate', 'status', 'amount', 'actions'];
-  
+  moreMenuItems :  MenuItem[] = [
+    { id: 'edit', label: 'Edit', icon: 'edit' },
+    { id: 'reimburse', label: 'Reimburse', icon: 'reimbursement' },
+    { id: 'archieve', label: 'Archieve', icon: 'archieve-add' },
+    { id: 'export', label: 'Export', icon: 'export' },
+
+  ];
+   @ViewChild('contextMenu') contextMenu!: ContextMenuComponent;
   statusColors: { [key: string]: string } = {
     'Screening': '#FFF8E1', // Light yellow
     'Approved': '#E8F5E9', // Light green
@@ -81,8 +89,11 @@ export class ReimbursementComponent {
     console.log('Rejected:', reimbursement);
   }
 
-  onMoreOptions(reimbursement: Reimbursement): void {
-    // Implement more options logic
-    console.log('More options for:', reimbursement);
+  handleMenuItemClick(item: MenuItem): void {
+      console.log('Menu item clicked:', item);
+  }
+  toggleMenu(event: Event): void {
+    event.stopPropagation();
+    this.contextMenu.toggle(event);
   }
 }

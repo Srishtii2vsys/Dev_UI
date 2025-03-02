@@ -67,7 +67,7 @@ export class DashboardComponent {
         id: 'advances',
         name: 'Total Advances',
         amount: totalAdvances,
-        icon : `svgs/advances.svg`
+        icon : `svgs/wallet.svg`
       },
       {
         id: 'reimbursements',
