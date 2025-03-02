@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { InfoCardComponent } from "../common-components/info-card/info-card.component";
-import { SummaryCardComponent } from '../common-components/summary-card/summary-card.component';
-import { MetricCardComponent, MetricCardListItems } from '../common-components/metric-card/metric-card.component';
-import { contactDetails } from '../static-data/contact-details';
-import { resourceDetails } from '../static-data/resource-details';
-import { personsData } from '../static-data/person-details';
-import { advancesData } from '../static-data/advances-data';
-import { reimbursementData } from '../static-data/reimbursement-data';
-import { Enum_Status } from '../enums/Enum_Status';
+import { InfoCardComponent } from "../../common-components/info-card/info-card.component";
+import { SummaryCardComponent } from '../../common-components/summary-card/summary-card.component';
+import { MetricCardComponent, MetricCardListItems } from '../../common-components/metric-card/metric-card.component';
+import { contactDetails } from '../../static-data/contact-details';
+import { resourceDetails } from '../../static-data/resource-details';
+import { personsData } from '../../static-data/person-details';
+import { advancesData } from '../../static-data/advances-data';
+import { reimbursementData } from '../../static-data/reimbursement-data';
+import { Enum_Status } from '../../enums/Enum_Status';
 
 @Component({
   selector: 'app-dashboard',

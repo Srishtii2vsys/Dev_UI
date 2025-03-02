@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
-import { reimbursementData } from '../static-data/reimbursement-data';
-import { Reimbursement } from '../models/Reimbursement.model';
-import { personsData } from '../static-data/person-details';
-import { ContextMenuComponent, MenuItem } from "../common-components/context-menu/context-menu.component";
+import { reimbursementData } from '../../static-data/reimbursement-data';
+import { Reimbursement } from '../../models/Reimbursement.model';
+import { personsData } from '../../static-data/person-details';
+import { ContextMenuComponent, MenuItem } from "../../common-components/context-menu/context-menu.component";
 
 @Component({
   selector: 'app-reimbursement',
@@ -18,7 +18,7 @@ export class ReimbursementComponent {
   moreMenuItems :  MenuItem[] = [
     { id: 'edit', label: 'Edit', icon: 'edit' },
     { id: 'reimburse', label: 'Reimburse', icon: 'reimbursement' },
-    { id: 'archieve', label: 'Archieve', icon: 'archieve-add' },
+    { id: 'archive', label: 'Archieve', icon: 'archive-add' },
     { id: 'export', label: 'Export', icon: 'export' },
 
   ];

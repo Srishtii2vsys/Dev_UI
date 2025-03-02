@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 interface menuItemInterface {
   name: string;
+  path?: string;
   icon: string;
   activeIcon?: string;
 }

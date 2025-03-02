@@ -5,6 +5,7 @@ import { Enum_Status } from "../enums/Enum_Status";
 import { Person } from "./Person.model";
 
 export class Reimbursement {
+    id! : number;
     title : string = "";
     date : string = "";
     lastUpdate : string = "";    

@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { notifications } from '../static-data/notifications-data';
-import { NotificationPanelComponent } from '../common-components/notification-panel/notification-panel.component';
-import { ContextMenuComponent, MenuItem } from '../common-components/context-menu/context-menu.component';
-import { ProfileDropdownComponent } from '../common-components/profile-dropdown/profile-dropdown.component';
-import { personsData } from '../static-data/person-details';
+import { notifications } from '../../static-data/notifications-data';
+import { NotificationPanelComponent } from '../../common-components/notification-panel/notification-panel.component';
+import { ContextMenuComponent, MenuItem } from '../../common-components/context-menu/context-menu.component';
+import { ProfileDropdownComponent } from '../../common-components/profile-dropdown/profile-dropdown.component';
+import { personsData } from '../../static-data/person-details';
 
 @Component({
   selector: 'app-header',
