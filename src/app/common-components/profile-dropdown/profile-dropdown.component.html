@@ -1,0 +1,23 @@
+<div class="dropdown-menu" *ngIf="isVisible">
+    <div class="user-info">
+        <div class="avatar-large">
+            <img *ngIf="user.id" [src]="'users/'+ user.id + '.jpg'" alt="Profile" class="avatar-img">
+            <div *ngIf="!user.id" class="avatar-placeholder large">
+                {{ user.name.charAt(0) }}
+            </div>
+        </div>
+        <div class="user-details">
+            <h3 class="user-name">{{ user.name }}</h3>
+            <p class="user-email">{{ user.email }}</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="menu-items">
+        <div *ngFor="let item of menuItems" class="menu-item" (click)="onItemClick(item, $event)">
+            <img [src]="'svgs/'+ item.icon + '.svg'">
+            <span>{{ item.label }}</span>
+        </div>
+    </div>
+</div>

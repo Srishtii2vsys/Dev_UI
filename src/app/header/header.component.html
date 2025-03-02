@@ -1,1 +1,42 @@
-<div class = "main">header works!</div>
+<div class="top-navbar">
+    <div class="left-section">
+      <div class="tab-indicator"></div>
+    </div>
+  
+    <div class="right-section">
+        <button class="icon-button" (click)="toggleMenu($event)">
+            <img src="svgs/add.svg">
+            <app-context-menu
+              #contextMenu
+              [menuItems]="addButtonMenuItems"
+              (itemClicked)="handleMenuItemClick($event)">
+            </app-context-menu>
+          </button>
+      <!-- Notification Button with MatMenu -->
+    <button mat-button [matMenuTriggerFor]="notificationMenu" class="icon-button notification">
+        <img src="svgs/notification.svg" >
+        <span *ngIf="notificationCount > 0" class="notification-badge">
+          {{ notificationCount }}
+        </span>
+      </button>
+  
+      <mat-menu #notificationMenu="matMenu">
+        <app-notification-panel></app-notification-panel>
+      </mat-menu>
+      <div class="user-profile">
+        <img [src]="'users/'+ currentUser.id + '.jpg'" alt="User Profile">
+        <span>{{ currentUser.name }}</span>
+    </div>
+    <button class="icon-button"  (click)="toggleProfileMenu($event)">
+        <img src ="svgs/arrow-down.svg">
+        <app-profile-dropdown
+        #profileDropdown
+        [user]="currentUser"
+        [menuItems]="profileMenuItems">
+      </app-profile-dropdown>
+    </button>
+        
+      
+    </div>
+  </div>
+  

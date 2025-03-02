@@ -1,0 +1,13 @@
+<!-- context-menu.component.html -->
+<div class="context-menu" *ngIf="isVisible">
+    <div 
+      *ngFor="let item of menuItems" 
+      class="menu-item" 
+      (click)="onItemClick(item, $event)">
+      <div class="icon-container">
+        <img  [src]="'svgs/' + item.icon + '.svg'" class = "material-icons">
+        <!-- <i class="material-icons">{{ item.icon }}</i> -->
+      </div>
+      <span class="label">{{ item.label }}</span>
+    </div>
+  </div>

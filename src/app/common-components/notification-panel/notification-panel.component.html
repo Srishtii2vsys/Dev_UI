@@ -1,0 +1,45 @@
+<div class="notification-container">
+    <div class="notification-tabs">
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'notifications'"
+        (click)="setActiveTab('notifications')">
+        Notifications
+      </button>
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'announcements'"
+        (click)="setActiveTab('announcements')">
+        Announcements
+      </button>
+      <button class="read-all-button" (click)="markAllAsRead()">
+        <img src="svgs/close-circle.svg">
+      </button>
+    </div>
+
+    <div class="notification-list">
+      <ng-container *ngIf="filteredNotifications.length; else emptyState">
+        <div 
+          *ngFor="let item of filteredNotifications" 
+          class="notification-item" 
+          [class.unread]="!item.isRead"
+          (click)="markAsRead(item)">
+
+            <img class="notification-icon"  [src]="'users/' + item.type + '.svg'" >
+          <div class="notification-content">
+            <div class="notification-message" [innerHTML]="item.message"></div>
+            <div class="notification-date">{{ formatDate(item.date) }}</div>
+          </div>
+        </div>
+      </ng-container>
+      
+      <ng-template #emptyState>
+        <div class="empty-state">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ccc" width="48" height="48">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+          <p>No {{ activeTab }} to display</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
