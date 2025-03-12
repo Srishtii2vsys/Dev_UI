@@ -8,10 +8,11 @@ import { personsData } from '../../static-data/person-details';
 import { advancesData } from '../../static-data/advances-data';
 import { reimbursementData } from '../../static-data/reimbursement-data';
 import { Enum_Status } from '../../enums/Enum_Status';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MetricCardComponent, SummaryCardComponent, InfoCardComponent],
+  imports: [MetricCardComponent, SummaryCardComponent, InfoCardComponent, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

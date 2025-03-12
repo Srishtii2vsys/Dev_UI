@@ -1,13 +1,10 @@
 <div class="main">
   <div class="content-section">
     <div class="left-div">
-      <div class="metrics-row">
-        <app-metric-card [listItems]="metricCardlistItems[0]">
-        </app-metric-card>
-        <app-metric-card [listItems]="metricCardlistItems[1]">
-        </app-metric-card>
-        <app-metric-card [listItems]="metricCardlistItems[2]">
-        </app-metric-card>
+      <div class="metrics-row" >
+        <ng-container *ngFor="let metric of metricCardlistItems">
+          <app-metric-card [listItems]="metric"></app-metric-card>
+        </ng-container>
       </div>
       <div class="summary-cards">
         <!-- Top Violators Card -->
