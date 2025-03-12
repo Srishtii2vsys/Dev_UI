@@ -1,42 +1,51 @@
 <div class="top-navbar">
-    <div class="left-section">
-      <div class="tab-indicator"></div>
+  <div class="left-section">
+    <div class="tab-indicator"></div>
+  </div>
+
+  <div class="right-section">
+    <!-- Add button with context menu -->
+    <app-icon-button 
+      iconSrc="svgs/add.svg" 
+      ariaLabel="Add new item"
+      (clicked)="toggleMenu($event)">
+      <app-context-menu
+        #contextMenu
+        [menuItems]="addButtonMenuItems"
+        (itemClicked)="handleMenuItemClick($event)">
+      </app-context-menu>
+    </app-icon-button>
+
+    <!-- Notification button with badge -->
+    <app-icon-button 
+      iconSrc="svgs/notification.svg"
+      [showBadge]="true"
+      [badge]="notificationCount"
+      badgeColor="#FF4A4A"
+      ariaLabel="Notifications"
+      [matMenuTriggerFor]="notificationMenu">
+    </app-icon-button>
+    
+    <mat-menu #notificationMenu="matMenu">
+      <app-notification-panel></app-notification-panel>
+    </mat-menu>
+
+    <!-- User profile -->
+    <div class="user-profile">
+      <img [src]="'users/'+ currentUser.id + '.jpg'" alt="User Profile">
+      <span>{{ currentUser.name }}</span>
     </div>
-  
-    <div class="right-section">
-        <button class="icon-button" (click)="toggleMenu($event)">
-            <img src="svgs/add.svg">
-            <app-context-menu
-              #contextMenu
-              [menuItems]="addButtonMenuItems"
-              (itemClicked)="handleMenuItemClick($event)">
-            </app-context-menu>
-          </button>
-      <!-- Notification Button with MatMenu -->
-    <button mat-button [matMenuTriggerFor]="notificationMenu" class="icon-button notification">
-        <img src="svgs/notification.svg" >
-        <span *ngIf="notificationCount > 0" class="notification-badge">
-          {{ notificationCount }}
-        </span>
-      </button>
-  
-      <mat-menu #notificationMenu="matMenu">
-        <app-notification-panel></app-notification-panel>
-      </mat-menu>
-      <div class="user-profile">
-        <img [src]="'users/'+ currentUser.id + '.jpg'" alt="User Profile">
-        <span>{{ currentUser.name }}</span>
-    </div>
-    <button class="icon-button"  (click)="toggleProfileMenu($event)">
-        <img src ="svgs/arrow-down.svg">
-        <app-profile-dropdown
+
+    <!-- Profile dropdown button -->
+    <app-icon-button 
+      iconSrc="svgs/arrow-down.svg"
+      ariaLabel="User menu"
+      (clicked)="toggleProfileMenu($event)">
+      <app-profile-dropdown
         #profileDropdown
         [user]="currentUser"
         [menuItems]="profileMenuItems">
       </app-profile-dropdown>
-    </button>
-        
-      
-    </div>
+    </app-icon-button>
   </div>
-  
+</div>

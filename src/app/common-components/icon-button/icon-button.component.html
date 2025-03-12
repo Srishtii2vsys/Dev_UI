@@ -1,0 +1,13 @@
+<button 
+  class="icon-button" 
+  [class.disabled]="disabled"
+  [class.active]="active"
+  [attr.aria-label]="ariaLabel"
+  [matMenuTriggerFor]="matMenuTriggerFor"
+  (click)="onClick($event)">
+  <img [src]="iconSrc" alt="">
+  <ng-content></ng-content>
+  <span *ngIf="showBadge && badge && badge > 0" class="notification-badge" [style.background-color]="badgeColor">
+    {{ badge }}
+  </span>
+</button>

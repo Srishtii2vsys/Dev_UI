@@ -19,7 +19,7 @@ export class DashboardComponent {
   contactItems = contactDetails;
   resourceItems  = resourceDetails;
   allUsers = personsData;
-  topSpendingUsersData = this.getTopSpendingUsers(10);
+  topSpendingUsersData = this.getTopSpendingUsers(8);
   violatorsData = this.getTopViolators(4);
   summaryData = this.getSummaryData();
   metricCardlistItems : MetricCardListItems[] = this.getMetricCardlistItems();

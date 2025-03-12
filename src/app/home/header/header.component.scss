@@ -1,60 +1,43 @@
 .top-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-    background-color: white;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 64px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   
   .left-section {
-    flex: 1;
+    display: flex;
+    align-items: center;
+    
     .tab-indicator {
-      width: 50px;
-      height: 4px;
-      border-radius: 4px;
+      /* Styles for your tab indicator */
     }
   }
   
   .right-section {
     display: flex;
     align-items: center;
-    gap: 16px;
-  }
-  
-  .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    position: relative;
-  }
-  
-  .notification-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: red;
-    color: white;
-    font-size: 10px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .user-profile {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-  
-    img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      object-fit: cover;
+    gap: 10px; /* As specified in your image - gap between buttons */
+    
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 8px;
+      
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      
+      span {
+        font-size: 14px;
+        font-weight: 500;
+      }
     }
   }
-  
+}

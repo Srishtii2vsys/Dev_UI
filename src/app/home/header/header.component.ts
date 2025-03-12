@@ -7,10 +7,11 @@ import { NotificationPanelComponent } from '../../common-components/notification
 import { ContextMenuComponent, MenuItem } from '../../common-components/context-menu/context-menu.component';
 import { ProfileDropdownComponent } from '../../common-components/profile-dropdown/profile-dropdown.component';
 import { personsData } from '../../static-data/person-details';
+import { IconButtonComponent } from '../../common-components/icon-button/icon-button.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, NotificationPanelComponent, MatMenuModule, MatButtonModule, ContextMenuComponent, ProfileDropdownComponent],
+  imports: [CommonModule, NotificationPanelComponent, MatMenuModule, MatButtonModule, ContextMenuComponent, ProfileDropdownComponent, IconButtonComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
